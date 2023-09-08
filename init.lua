@@ -143,11 +143,24 @@ require('lazy').setup({
     -- Optional; default configuration will be used if setup isn't called.
     config = function()
       require("everforest").setup({
-        vim.cmd.colorscheme('everforest'),
+        -- vim.cmd.colorscheme('everforest'),
       })
     end,
   },
-
+  {
+  "p00f/alabaster.nvim",
+  version = false,
+  lazy = false,
+  priority = 1000, -- make sure to load this before all the other start plugins
+  -- Optional; default configuration will be used if setup isn't called.
+  config = function()
+    require("everforest").setup({
+      vim.cmd.set('background=light'),
+      vim.cmd.set('termguicolors'),
+      vim.cmd.colorscheme('alabaster'),
+    })
+  end,
+  },
   {
     -- Set lualine as statusline
     'nvim-lualine/lualine.nvim',
